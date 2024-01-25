@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import userRoute from "./routers/userRouters.js"
+import volunteerRoute from "./routers/volunteerRouter.js"
 
 const app = express();
 
@@ -32,10 +33,11 @@ app.get("/", (req, res) => {
   });
 
   app.use("/api/edu/user", userRoute);
+  app.use("/api/edu/volunteer", volunteerRoute);
 
 
 
-const port = process.env.port || 8000;
+const port = process.env.port || 8100;
 app.listen(port, () => {
   console.log(`server is running on port:${port}`);
   connectToMongodb();
